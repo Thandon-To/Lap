@@ -40,7 +40,7 @@ int main() {
 ## TEST CASE
 ### Input
 ```bash
-Enter your name: Thnandon
+Enter your name: Thanadon
 Enter you age: 19
 ```
 ### Output
