@@ -20,20 +20,34 @@ int main() {
 
 ## FIX CODE
 ```c++
-ไม่มี
+#include <stdio.h>
+
+int main() {
+    char Name[50] ;
+    int  Age = 0 ;
+    
+    printf( "Enter your name: " ) ;
+    scanf( "%s", Name ) ;
+    printf( "Enter your age: " ) ;
+    scanf( "%d", &Age ) ;
+    printf( "- - - - - -\n" ) ;
+    printf( "Hello %s \n", Name ) ; 
+    printf( "Age = %d\n", Age ) ; 
+    
+}
 ```
 
 ## TEST CASE
 ### Input
 ```bash
-Enter your name: Thongchai
-Enter you age: 56
+Enter your name: Thnandon
+Enter you age: 19
 ```
 ### Output
 ```bash
 - - - - - -
-Hello Thongchai
-Age = 56
+Hello Thanadon
+Age = 18
 ```
 
 ## มาตรฐานการตรวจตามหลักการเรียนรู้ของบลูม
