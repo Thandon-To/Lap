@@ -63,7 +63,7 @@ int main()
 
         if (choice == 1 && qty <= stock1) //ตรวจว่าผู้ใช้เลือกสินค้าหมายเลข 1 หรือไม่ and ตรวจว่าจำนวนที่เลิอกไม่เกินจำนวนสินค้าที่เหลือในสต็อก
         {
-            //บวกจำนวนสินค้าที่เลือก (qty) เข้าไปใน selected1
+            selected1 += qty;//บวกจำนวนสินค้าที่เลือก (qty) เข้าไปใน selected1
             stock1 -= qty; //ลบจำนวนที่ลูกค้าซื้อออกจากสต็อก
             total += price1 * qty; //คำนวณราคาของสินค้าที่ซื้อในรอบนี้ (price1 * qty) แล้วบวกเข้าไปในราคารวม (total)
         }
@@ -133,7 +133,7 @@ int main()
     if (selected7 > 0)
         printf("%s x%d = %d Baht\n", name7, selected7, selected7 * price7);
 
-    printf("Total = %d Baht", total);
+    printf("Total = %d Baht\n", total);
 
     // ---------- รับเงินลูกค้า ----------
     int paid = 0; //paid ตัวแปรเก็บจำนวนเงินที่ลูกค้าจ่ายไปแล้ว(รวมสะสม)
@@ -279,5 +279,3 @@ int main()
     printf("\nThank you for your purchase!\n");
     return 0;
 }
-
-
