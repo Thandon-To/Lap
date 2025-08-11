@@ -42,6 +42,7 @@ int main()
     // เลือกสินค้า
     do
     {
+        // ---------- แสดงเมนู ----------
         printf("\n== Product Menu ==\n");
         printf("1. %s - %d Baht (%d left)\n", name1, price1, stock1);
         printf("2. %s - %d Baht (%d left)\n", name2, price2, stock2);
@@ -51,6 +52,7 @@ int main()
         printf("6. %s - %d Baht (%d left)\n", name6, price6, stock6);
         printf("7. %s - %d Baht (%d left)\n", name7, price7, stock7);
 
+        // ---------- เลือกสินค้า ----------
         printf("Enter product number (0 to finish): ");
         scanf("%d", &choice);
         if (choice == 0)
@@ -61,7 +63,7 @@ int main()
 
         if (choice == 1 && qty <= stock1) //ตรวจว่าผู้ใช้เลือกสินค้าหมายเลข 1 หรือไม่ and ตรวจว่าจำนวนที่เลิอกไม่เกินจำนวนสินค้าที่เหลือในสต็อก
         {
-            selected1 += qty; //บวกจำนวนสินค้าที่เลือก (qty) เข้าไปใน selected1
+            //บวกจำนวนสินค้าที่เลือก (qty) เข้าไปใน selected1
             stock1 -= qty; //ลบจำนวนที่ลูกค้าซื้อออกจากสต็อก
             total += price1 * qty; //คำนวณราคาของสินค้าที่ซื้อในรอบนี้ (price1 * qty) แล้วบวกเข้าไปในราคารวม (total)
         }
@@ -107,6 +109,7 @@ int main()
         }
     } while (1);
 
+    // ---------- ตรวจว่ามีสินค้าที่เลือกหรือไม่ ----------
     if (total == 0)
     {
         printf("No items selected.\n");
@@ -132,7 +135,7 @@ int main()
 
     printf("Total = %d Baht", total);
 
-
+    // ---------- รับเงินลูกค้า ----------
     int paid = 0; //paid ตัวแปรเก็บจำนวนเงินที่ลูกค้าจ่ายไปแล้ว(รวมสะสม)
     do
     {
@@ -142,20 +145,20 @@ int main()
 
         if (addPay > 0) //ตรวจว่าลูกค้าใส่จำนวนเงินมากกว่า 0 หรือไม่
         {
-            paid += addPay;
+            paid += addPay; // บวกยอดจ่ายสะสม
             printf("You have paid: %d Baht. Remaining: %d Baht", paid, (paid >= total ? 0 : total - paid)); // ถ้า paid >= total ให้แสดง 0, ถ้าไม่ ให้แสดงส่วนที่ยังขาด
         }
         else
         {
             printf("Please enter a positive amount.");
         }
-    } while (paid < total);
+    } while (paid < total); // วนจนกว่าจะจ่ายครบหรือเกิน
 
-    //ตัวแปร temp เก็บ ยอดเงินที่ต้องแปลงเป็นธนบัตรและเหรียญ
-    int temp = paid;
+    // ---------- บันทึกเงินเข้าเครื่อง ----------
+    int temp = paid; //ตัวแปร temp เก็บ ยอดเงินที่ต้องแปลงเป็นธนบัตรและเหรียญ
     while (temp >= 1000) //ตรวจว่าค่าใน temp ยัง มากกว่าหรือเท่ากับ 1000 หรือไม่
     {
-        money1000++;
+        money1000++; //บวกจำนวนแบงค์ 1000 เข้า
         temp -= 1000;
     }
     while (temp >= 500)
@@ -194,8 +197,8 @@ int main()
         temp -= 1;
     }
 
-    // change ตัวแปรเก็บจำนวนเงินทอน
-    int change = paid - total;
+    // ---------- คำนวณเงินทอน ----------
+    int change = paid - total; // change ตัวแปรเก็บจำนวนเงินทอน
     printf("Change = %d Baht\n", change);
 
     while (change >= 1000 && money1000 > 0) //เงินทอนยัง >= 1000 ไหม และ ในเครื่องยังมีแบงค์ 1000 ไหม
@@ -276,3 +279,5 @@ int main()
     printf("\nThank you for your purchase!\n");
     return 0;
 }
+
+
