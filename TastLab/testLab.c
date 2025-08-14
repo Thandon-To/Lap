@@ -105,7 +105,7 @@ int main()
         }
         else
         {
-            printf("Not enough stock or invalid choice.\n");
+            printf("Please select a menu (1-7).\n");
         }
     } while (1);
 
@@ -136,10 +136,10 @@ int main()
     printf("Total = %d Baht\n", total);
 
     // ---------- รับเงินลูกค้า ----------
-    int paid = 0; //paid ตัวแปรเก็บจำนวนเงินที่ลูกค้าจ่ายไปแล้ว(รวมสะสม)
+    int paid = 0; //paid ตัวแปรเก็บจำนวนเงินที่ลูกค้าจ่าย
     do
     {
-        int addPay = 0; //addPay เพื่อเก็บ จำนวนเงินที่ลูกค้าจ่ายเพิ่มในรอบนี้
+        int addPay = 0; //addPay เพื่อเก็บ จำนวนเงินที่ลูกค้าจ่ายเพิ่มในแต่ละรอบ
         printf("Enter amount to pay (need at least %d): ", total - paid);
         scanf("%d", &addPay);
 
@@ -148,10 +148,7 @@ int main()
             paid += addPay; // บวกยอดจ่ายสะสม
             printf("You have paid: %d Baht. Remaining: %d Baht", paid, (paid >= total ? 0 : total - paid)); // ถ้า paid >= total ให้แสดง 0, ถ้าไม่ ให้แสดงส่วนที่ยังขาด
         }
-        else
-        {
-            printf("Please enter a positive amount.");
-        }
+        
     } while (paid < total); // วนจนกว่าจะจ่ายครบหรือเกิน
 
     // ---------- บันทึกเงินเข้าเครื่อง ----------
