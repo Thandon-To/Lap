@@ -1,27 +1,22 @@
 #include <stdio.h>
 
+#include <stdio.h>
+
 int main() {
-    int n; //ใช้สำหรับเก็บตัวเลขที่ผู้ใช้ป้อนเข้ามา
-    int i, j; //เป็นตัวนับหลักในลูปแรก ใช้แทนตัวเลขที่เรากำลังตรวจสอบว่าเป็นจำนวนเฉพาะหรือไม่
-    int isPrime;
+    int n, i, j;
 
     printf("Enter number :\n");
-    if (scanf("%d", &n) != 1) return 0;
+    if (scanf("%d", &n) != 1) {
+        printf("Please Enter number\n");
+    }
 
     for (i = n; i >= 2; i--) {
-        if (i < 2) continue;
-        isPrime = 1;
+        for (j = 2; j*j <= i && i % j != 0; j++);
 
-        for (j = 2; j * j <= i; j++) { 
-            if (i % j == 0) {           
-                isPrime = 0;
-                break;
-            }
-        }
-
-        if (isPrime) {
+        if (j*j > i) {  
             printf("%d ", i);
         }
     }
     return 0;
 }
+
