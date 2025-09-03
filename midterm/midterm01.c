@@ -1,33 +1,24 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
     int n;
-    int i, j;
-    int isPrime;
-
     printf("Enter number :\n");
-    if (scanf("%d", &n) != 1) return 0;
-
-    i = n;
-    while (i >= 2) {             /* ไล่ i จาก n ลงมา 2 */
-        isPrime = 1;
-
-        j = 2;
-        while (j * j <= i) {     /* ตรวจตัวหารถึง ~sqrt(i) */
-            if (i % j == 0) {
-                isPrime = 0;
-                break;
-            }
-            j++;
-        }
-
-        if (isPrime) {
-            printf("%d ", i);
-        }
-
-        i--;
+    if (scanf("%d", &n) != 1) {
+        printf("Please Enter number\n");
+        return 0;
     }
 
+    int i = n;
+    while (i >= 2) {
+        int j = 2;
+        while (j * j <= i && i % j != 0) {
+            j++;
+        }
+        if (j * j > i) {        
+            printf("%d ", i);   
+        }
+        i--;
+    }
     printf("\n");
     return 0;
 }
