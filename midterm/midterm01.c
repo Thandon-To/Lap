@@ -1,24 +1,25 @@
 #include <stdio.h>
 
-int main(void) {
+int main()
+{
+
     int n;
     printf("Enter number :\n");
-    if (scanf("%d", &n) != 1) {
-        printf("Please Enter number\n");
-        return 0;
-    }
+    scanf("%d", &n);
 
     int i = n;
-    while (i >= 2) {
+    while (i >= 2) //วนตรวจสอบเลขทุกตัวจาก n ลงมาเรื่อย ๆ
+    {
         int j = 2;
-        while (j * j <= i && i % j != 0) {
+        while (j * j <= i && i % j != 0) //ตรวจสอบว่าเลข i ที่กำลังดูอยู่นั้นเป็น จำนวนเฉพาะ หรือเปล่า
+        {
             j++;
         }
-        if (j * j > i) {        
-            printf("%d ", i);   
+        if (j * j > i)
+        {
+            printf("%d ", i);
         }
         i--;
     }
-    printf("\n");
     return 0;
 }
